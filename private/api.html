@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="css/iosCheckbox.css" rel="stylesheet">
+    <title>Seargent</title>
+
+</head>
+<body onload='$(".ios").iosCheckbox();'>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="containerco">
+
+        	<img src="/img/logo.png" style="float:left;padding-top:20px;padding-left:10px;height:100px!important;width:130px!important;"></img>
+            <div class="navbar-header">
+                <input class="input-search" type="text" name="search" placeholder="Search...">
+                    <button onclick="mainCreate()" type="button" style="background: white">Search</button>
+                <a class="navbar-brand" href="#"></a>
+
+                    <div class="checkBoxes" style="margin-top: 20px;">
+                    <table border="0" cellspacing="30">
+                    <tr>
+                      <td class="logoTd"><img src="/img/ebay.png" style="height: 30px; width: 75px"></td>
+                      <td class="logoTd"><img src="/img/Amazon.png" style="height: 30px; width: 75px"></td>
+                    <td class="logoTd"> <img src="/img/AliExpress.png" style="height: 30px; width: 75px"></td>
+
+
+                    </tr>
+                    <tr>
+                    <td><input class="ios" type="checkbox" name="ebay" value="Ebay"  checked></td>
+                    <td><input class="ios" type="checkbox" name="Amazon" value="Amazon"  checked></td>
+                    <td><input class="ios" type="checkbox" name="AliExpress" value="AliExpress"  checked></td>
+                    </tr>
+                    </table>
+                    </div>
+            </div>
+            </div>
+    </nav>
+    <div class="containAll" >
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <table class="content-table">
+            <tr>
+              <th id="headline-img"></th>
+              <td id="headline-title"></td>
+              <td id="headline-price"></td>
+            </tr>
+            <tr id="ebay-record">
+              <td><img src="https://goo.gl/8FbhHj"></td>
+              <td id="ebay-link"></td>
+              <td id="ebay-price"></td>
+            </tr>
+            <tr id="amazon-record">
+              <td><img src="https://goo.gl/q5WGSN"></td>
+              <td id="amazon-link"></td>
+              <td id="amazon-price"></td>
+            </tr>
+            <tr id="ali-record">
+              <td><img src="https://goo.gl/PPntcX"></td>
+              <td id="ali-link"></td>
+              <td id="ali-price"></td>
+            </tr>
+            </table>
+            <span class="close" onclick="closepop()">&times;</span>
+            
+          </div>
+    	<div class="container">
+
+
+    	</div>
+    
+     </div>
+
+    <script src="https://code.jquery.com/jquery-git.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/iosCheckbox.min.js"></script>
+</body>
+</html>
