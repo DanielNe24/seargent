@@ -50,7 +50,7 @@ $('#login').on('click', function (e) {
 
   $.ajax({
     type: "POST",
-    url: "https://localhost:8080/login/" + userName + "/" + password,
+    url: "http://localhost:8080/login/" + userName + "/" + password,
     success: function(data, status, xhr) { 
       alert(data);
     }
@@ -67,7 +67,7 @@ $('#signin').on('click', function (e) {
 
   $.ajax({
     type: "POST",
-    url: "https://localhost:8080/register/" + userName + "/" + password,
+    url: "http://localhost:8080/register/" + userName + "/" + password,
     success: function(data, status, xhttp) { alert(data); }
   });
 
