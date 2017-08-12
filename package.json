@@ -5,6 +5,9 @@
   "main": "main.js",
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "start": "main.js"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
