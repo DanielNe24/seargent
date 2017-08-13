@@ -1,4 +1,11 @@
 
+$(document).ajaxStart(function(){
+    $("#loaderImage").css("display", "block");
+});
+
+$(document).ajaxComplete(function(){
+    $("#loaderImage").css("display", "none");
+});
 
 function mainCreate() {
 	
@@ -25,7 +32,6 @@ function mainCreate() {
        	 'url': URL,
        	 'success': function (data) {
        	     tmp = data;
-       	     $('#loaderImage').hide();
        	 }
     	});
    	 return tmp;
