@@ -13,7 +13,7 @@ function mainCreate() {
  	var aliexpress = document.getElementsByClassName("ios")[2].checked
  	
 	var search = document.getElementsByClassName("input-search")[0].value;
-	var URL = "https://127.0.0.1:5000/app-api?search=" + search + "&ebay=" +  ebay + "&amazon=" + amazon + "&aliexpress=" + aliexpress ;
+	var URL = "https://seargentrest.herokuapp.com/app-api?search=" + search + "&ebay=" +  ebay + "&amazon=" + amazon + "&aliexpress=" + aliexpress ;
 	
 	var obj = function () {
     	var tmp = null;
@@ -103,7 +103,7 @@ function whichSite(URL){
 
 function compare(imgURL, title, link, price){
 
-	var URL = "https://127.0.0.1:5000/modal-api?imgurl=" + imgURL + "&title=" + title + "&link=" + link + "&price=" + price;
+	var URL = "https://seargentrest.herokuapp.com/modal-api?imgurl=" + imgURL + "&title=" + title + "&link=" + link + "&price=" + price;
 
 	var obj = function () {
     	var tmp = null;
