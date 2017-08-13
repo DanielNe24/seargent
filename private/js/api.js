@@ -1,12 +1,3 @@
-
-$(document).ajaxStart(function(){
-    $("#loaderImage").css("display", "block");
-});
-
-$(document).ajaxComplete(function(){
-    $("#loaderImage").css("display", "none");
-});
-
 function mainCreate() {
 	
 	document.getElementsByClassName("container")[0].remove();
@@ -108,69 +99,6 @@ function whichSite(URL){
 
 }
 
-function compare(imgURL, title, link, price){
-
-	var URL = "https://seargentrest.herokuapp.com/modal-api?imgurl=" + imgURL + "&title=" + title + "&link=" + link + "&price=" + price;
-
-	var obj = function () {
-    	var tmp = null;
-    	$.ajax({
-      	  'async': false,
-       	 'type': "GET",
-       	 'global': false,
-       	 'dataType': 'json',
-       	 'url': URL,
-       	 'success': function (data) {
-       	     tmp = data;
-       	 }
-    	});
-   	 return tmp;
-	}();
-
-	var all = obj['items'];
-	var item;
-
-	var modal = document.getElementById("myModal");
-	modal.style.display = "block";
-	var table = document.getElementById("table");
-	var ebay = document.getElementById("ebay-record");
-	var amazon = document.getElementById("amazon-record");
-	var ali = document.getElementById("ali-record");
-	var td1 = document.createElement("td");
-	table.appendChild(td1);
-	var thTitle = document.getElementById("headline-title")
-	var a = document.createElement("a");
-	a.setAttribute("href", link);
-	a.innerHTML = title;
-	thTitle.appendChild(a);
-
-	var hSec = document.createElement("h4");
-	hSec.setAttribute("class", "none");
-	var thPrice = document.getElementById("headline-price");
-	var prc = "$".concat(price.toString());
-	hSec.innerHTML = prc;
-	thPrice.appendChild(hSec);
-	
-	var site = whichSite(imgURL);
-	if(site === "https://goo.gl/8FbhHj")
-		ebay.setAttribute("style", "display: none;");
-	else if(site === "https://goo.gl/q5WGSN")
-		amazon.setAttribute("style", "display: none;");
-	else
-		ali.setAttribute("style", "display: none;");
-		
-	for (var i=1;i < all.length; i++) {
-		console.log(all[i][2])
-		if (all[i][2].includes("ebay"))
-			 createEbay(all[i][2], all[i][0], all[i][3], all[i][1]);
-		else if (all[i][2].includes("amazon"))
-			createAmazon(all[i][2], all[i][0], all[i][3], all[i][1]);
-		else 
-			createAli(all[i][2], all[i][0], all[i][3], all[i][1]);
-	};	
-	
-}
-
 function createEbay(imgURL, title, link, price){
 	var ti = document.getElementById("ebay-link");
 	var a = document.createElement("a");
@@ -216,9 +144,4 @@ function createAli(imgURL, title, link, price){
 	hSec.setAttribute("class", "none");
 	hSec.innerHTML = prc.toString();
 	pr.appendChild(hSec);
-}
-
-function closepop(){
-	var modal = document.getElementById("myModal");
-		modal.style.display = "none";
 }
