@@ -2,6 +2,8 @@
 
 function mainCreate() {
 	
+
+	$('#loaderImage').show();
 	document.getElementsByClassName("container")[0].remove();
 	var container = document.createElement("div");
 	container.setAttribute("class","container");
@@ -15,7 +17,6 @@ function mainCreate() {
 	var search = document.getElementsByClassName("input-search")[0].value;
 	var URL = "https://seargentrest.herokuapp.com/app-api?search=" + search + "&ebay=" +  ebay + "&amazon=" + amazon + "&aliexpress=" + aliexpress ;
 	
-	$('#loaderImage').show();
 	var obj = function () {
     	var tmp = null;
     	$.ajax({
