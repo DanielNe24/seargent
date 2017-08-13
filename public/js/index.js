@@ -52,19 +52,12 @@ $('#login').on('click', function (e) {
     type: "POST",
     url: "/login/" + userName + "/" + password,
     success: function(data, status, xhr) { 
-      alert(data);
+      $.ajax({
+        type: "GET",
+        url: "/"
+      });
     }
   });
-
-  $.ajax({
-    type: "GET",
-    url: "/",
-    success: function(data, status, xhr) { 
-      alert(data);
-    }
-  });
-
-
 });
 
 
