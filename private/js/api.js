@@ -15,6 +15,7 @@ function mainCreate() {
 	var search = document.getElementsByClassName("input-search")[0].value;
 	var URL = "https://seargentrest.herokuapp.com/app-api?search=" + search + "&ebay=" +  ebay + "&amazon=" + amazon + "&aliexpress=" + aliexpress ;
 	
+	$('#loaderImage').show();
 	var obj = function () {
     	var tmp = null;
     	$.ajax({
@@ -25,6 +26,7 @@ function mainCreate() {
        	 'url': URL,
        	 'success': function (data) {
        	     tmp = data;
+       	     $('#loaderImage').hide();
        	 }
     	});
    	 return tmp;
