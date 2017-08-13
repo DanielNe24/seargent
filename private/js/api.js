@@ -2,8 +2,6 @@
 
 function mainCreate() {
 	
-
-	$('#loaderImage').show();
 	document.getElementsByClassName("container")[0].remove();
 	var container = document.createElement("div");
 	container.setAttribute("class","container");
