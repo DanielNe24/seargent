@@ -97,7 +97,8 @@ app.post('/login/:username/:password', function(req, res) {
     		let uid = guid();
     		res.cookie('login',uid, { maxAge: 3600000, httpOnly: true });
     		res.status("200");
-    		res.send("User has successfully logged in!");	
+    		res.sendFile('/');
+    		//res.send("User has successfully logged in!");	
     		exist = true;
     		loggedIn.push([username,password,uid]);
     		break;
