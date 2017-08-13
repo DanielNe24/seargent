@@ -100,7 +100,6 @@ app.post('/login/:username/:password', function(req, res) {
     		res.send("User has successfully logged in!");	
     		exist = true;
     		loggedIn.push([username,password,uid]);
-    		location.reload();
     		break;
 		}
 	}
