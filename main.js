@@ -97,8 +97,7 @@ app.post('/login/:username/:password', function(req, res) {
     		let uid = guid();
     		res.cookie('login',uid, { maxAge: 3600000, httpOnly: true });
     		res.status("200");
-    		res.sendFile('/');
-    		//res.send("User has successfully logged in!");	
+    		res.send("User has successfully logged in!");	
     		exist = true;
     		loggedIn.push([username,password,uid]);
     		break;
@@ -108,93 +107,6 @@ app.post('/login/:username/:password', function(req, res) {
 	if (!exist) {
 		res.status("500");
 		res.send("User / password does not exist!");
-	}
-
-
-});
-
-app.post('/item/', function(req, res) {
-
-	var newItem = JSON.parse(JSON.stringify(req.body));
-	items.array.push({ 'id': id, 'data': newItem['item'] });
-	id++;
-	res.status("200");
-	res.send("Item was successfully added!");	
-
-});
-
-app.get('/items', function(req, res) {
-    res.send( items ); });
-
-app.get('/item/:id', function(req, res) {
-    
-    var id = req.params.id;
-   	console.log(id);
-    var found = false;
-
-    for (var i = 0; i < items.array.length ; i++) {
-
-    	if ( items.array[i]['id'] == id ) {
-			res.status("200");
-    		res.send(items.array[i]);	
-    		found = true;
-		}
-	}
-
-	if (!found) {
-		res.status("404");
-		res.send("Item was not found!");
-	}
-
-});
-
-
-app.delete('/item/:id', function (req, res) {
-
-
-	var id = req.params.id;
-    var found = false;
-
-    for (var i = 0; i < items.array.length ; i++) {
-
-    	if ( items.array[i]['id'] == id ) {
-			
-    		items.array.splice(i, 1);
-			res.status("200");
-    		res.send("Item was deleted!");	
-    		found = true;
-		}
-	}
-
-	if (!found) {
-		res.status("404");
-		res.send("Item was not found!");
-	}
-
-});
-
-app.put('/item/', function (req, res) {
-
-	var updateJson = JSON.parse(JSON.stringify(req.body));
-	var id = updateJson['id'];
-	var newData = updateJson['newData'];
-	var found = false;
-
-
-	for (var i = 0; i < items.array.length ; i++) {
-
-    	if ( items.array[i]['id'] == id ) {
-    		items.array[i]['data'] = newData;
-    		res.status("200");
-    		res.send("Item was updated!");	
-    		found = true;
-    	}
-
-    }
-
-    if (!found) {
-		res.status("404");
-		res.send("Item was not found!");
 	}
 
 
