@@ -52,10 +52,7 @@ $('#login').on('click', function (e) {
     type: "POST",
     url: "/login/" + userName + "/" + password,
     success: function(data, status, xhr) { 
-      $.ajax({
-        type: "GET",
-        url: "/"
-      });
+      alert(data);
     }
   });
 });
@@ -71,5 +68,4 @@ $('#signin').on('click', function (e) {
     url: "/register/" + userName + "/" + password,
     success: function(data, status, xhttp) { alert(data); }
   });
-
 });
