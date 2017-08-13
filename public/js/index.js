@@ -71,7 +71,4 @@ $('#signin').on('click', function (e) {
     success: function(data, status, xhttp) { alert(data); }
   });
 
-  location.reload();
-
-
 });

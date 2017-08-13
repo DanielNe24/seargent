@@ -55,11 +55,11 @@ app.get('/',function(req,res, next){
 
 
 
-app.get('/',function(req,res){
+//app.get('/',function(req,res){
        
-     res.sendFile('public/hello.html' , { root : __dirname });
+//     res.sendFile('public/hello.html' , { root : __dirname });
 
-});
+//});
 
 
 app.post('/register/:username/:password', function(req, res) {
