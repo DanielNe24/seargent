@@ -56,6 +56,14 @@ $('#login').on('click', function (e) {
     }
   });
 
+  $.ajax({
+    type: "GET",
+    url: "/",
+    success: function(data, status, xhr) { 
+      alert(data);
+    }
+  });
+
 
 });
 
