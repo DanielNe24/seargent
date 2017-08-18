@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/private'));
 app.use(cookieParser());
+var valid = false;
 
 // Add headers
 app.use(function (req, res, next) {
@@ -29,7 +30,14 @@ app.use(function (req, res, next) {
 
 app.get('/',function(req,res, next){
 
-	console.log("User trying to access")
+	
+	console.log(valid)
+	if (valid) {
+		valid = false;
+		res.sendFile('private/api.html' , { root : __dirname });
+		return
+	}
+
 	var uid;
 	try {
 		var uid = req.cookies.login;
@@ -48,8 +56,8 @@ app.get('/',function(req,res, next){
 		}
 	}
 
-       	if (!found)
-     		res.sendFile('public/hello.html' , { root : __dirname });	
+    if (!found)
+     	res.sendFile('public/hello.html' , { root : __dirname });	
 
 });
 
@@ -57,7 +65,7 @@ app.get('/',function(req,res, next){
 
 app.get('/',function(req,res){
        
-     res.sendFile('public/hello.html' , { root : __dirname });
+     res.sendFile('private/api.html' , { root : __dirname });
 
 });
 
@@ -78,9 +86,10 @@ app.post('/register/:username/:password', function(req, res) {
 	}
 
 	if (!exist) {
+		valid = true;
     	users.push([username,password]);
     	res.status("200");
-    	res.send("User has successfully been registered!");
+    	res.redirect('/');	
 	}
 
 });
@@ -97,7 +106,8 @@ app.post('/login/:username/:password', function(req, res) {
     		let uid = guid();
     		res.cookie('login',uid, { maxAge: 3600000, httpOnly: true });
     		res.status("200");
-    		res.send("User has successfully logged in!");	
+    		valid = true;
+    		res.redirect('/');	
     		exist = true;
     		loggedIn.push([username,password,uid]);
     		break;
